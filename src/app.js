@@ -6,6 +6,7 @@ require('dotenv').config();
 const eventsRouter = require('./routes/eventsRouter'); 
 const usersRouter = require('./routes/usersRouter')
 const signupsRouter = require('./routes/signupsRouter');
+const seedRouter = require("./routes/seedRouter")
 
 
 
@@ -35,5 +36,6 @@ app.get('/', (req, res) => {
 app.use('/api/events', eventsRouter); // All /api/events routes handled by eventsRouter
 app.use('/api/users', usersRouter); // All /api/users routes handled by usersRouter
 app.use('/api/signups', signupsRouter); // All /api/signups routes handled by signupsRouter
+app.use('/admin', seedRouter)
 
 module.exports = app;
