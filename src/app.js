@@ -6,8 +6,6 @@ require('dotenv').config();
 const eventsRouter = require('./routes/eventsRouter'); 
 const usersRouter = require('./routes/usersRouter')
 const signupsRouter = require('./routes/signupsRouter');
-const seedRouter = require("./routes/seedRouter")
-
 
 
 const app = express();
@@ -18,7 +16,7 @@ app.use(express.json()); // Automatically parse incoming JSON
 // CORS setup
 if (process.env.NODE_ENV === 'production') {
   app.use(cors({
-    origin: 'https://yourfrontenddomain.com', // TODO: Replace with your my deployed frontend URL
+    origin: 'fabulous-salamander-321bab.netlify.app',
   }));
 } else {
   app.use(cors()); // Allow everything during development
@@ -36,6 +34,6 @@ app.get('/', (req, res) => {
 app.use('/api/events', eventsRouter); // All /api/events routes handled by eventsRouter
 app.use('/api/users', usersRouter); // All /api/users routes handled by usersRouter
 app.use('/api/signups', signupsRouter); // All /api/signups routes handled by signupsRouter
-app.use('/admin', seedRouter)
+
 
 module.exports = app;
