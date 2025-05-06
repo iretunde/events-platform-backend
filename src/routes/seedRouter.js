@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+
 const seed = require('../db/seeds/prodSeed');
 const getUsers = require('../db/data/prodData/users');
 const events = require('../db/data/prodData/events');
