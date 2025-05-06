@@ -16,7 +16,7 @@ app.use(express.json()); // Automatically parse incoming JSON
 // CORS setup
 if (process.env.NODE_ENV === 'production') {
   app.use(cors({
-    origin: 'fabulous-salamander-321bab.netlify.app',
+    origin: 'https://fabulous-salamander-321bab.netlify.app',
   }));
 } else {
   app.use(cors()); // Allow everything during development
