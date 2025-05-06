@@ -8,7 +8,8 @@ const mailjet = Mailjet.apiConnect(
 
 async function sendResetEmail(toEmail, toName, resetToken) {
   const frontendUrl = process.env.CLIENT_BASE_URL || 'http://localhost:3000';
-  const resetLink = `${frontendUrl}/reset-password/?token=${resetToken}`;
+  const resetLink = `${frontendUrl}/reset-password/${resetToken}`;
+  console.log('Reset Link:', resetLink)
 
   const emailData = {
     Messages: [
