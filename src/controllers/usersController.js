@@ -206,9 +206,17 @@ exports.fetchUserById = async (req, res, next) => {
   }
 };
 
+// GET /api/users/verify-reset-token/:token
+exports.verifyResetToken = (req, res) => {
+  const { token } = req.params;
 
-
-
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    return res.status(200).json({ msg: 'Valid token', user_id: decoded.user_id });
+  } catch (err) {
+    return res.status(400).json({ msg: 'Invalid or expired token' });
+  }
+};
 
 
   

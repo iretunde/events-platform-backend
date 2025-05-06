@@ -7,7 +7,8 @@ const {
   resetPasswordWithToken,
   updateRole,
   fetchAllUsers,
-  fetchUserById
+  fetchUserById,
+  verifyResetToken
 } = require('../controllers/usersController');
 
 const usersRouter = express.Router();
@@ -35,6 +36,9 @@ usersRouter.get('/', fetchAllUsers);
 
 //Fetch a specifc user
 usersRouter.get('/:user_id', fetchUserById);
+
+// Authenticate a user
+usersRouter.get('/verify-reset-token/:token', verifyResetToken);
 
 
 module.exports = usersRouter;
